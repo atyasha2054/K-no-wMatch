@@ -1,0 +1,5 @@
+process_4=pd.read_csv('/content/decoded_data_p4(matching_score).csv')
+process_5=pd.read_csv('/content/decoded_weighted_output_p5.csv')
+
+process_4['Weighted_Matching_Score'] = process_5['Weighted_Matching_Score']
+process_4.to_csv('final_decoded_data.csv', index=False)
