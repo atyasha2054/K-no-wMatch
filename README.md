@@ -127,6 +127,7 @@ For a detailed step-by-step demonstration of the five matching processes, please
 ## ✍️**Team JAWAAN**
 
 We are Team JAWAAN, a passionate group of innovators focused on solving challenging problems at the intersection of data science, machine learning, and privacy engineering.
+
 	•	Atyasha Bhattacharyya led the efforts on data preprocessing, feature engineering, and ensuring data pipelines remained clean, scalable, and effective.
  
 	•	Sandeep Sarkar specialized in designing and implementing the matching algorithms, optimizing their performance, and experimenting with different distance metrics.
