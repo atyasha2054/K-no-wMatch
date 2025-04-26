@@ -1,0 +1,96 @@
+feature_weights = {
+    'Age': 1.0,
+    'Income': 2.0,
+    'Rent': 1.2,
+    'Loan_Repayment': 1.5,
+    'Insurance': 0.5,
+    'Groceries': 1.0,
+    'Occupation': 1.5,
+    'City_Tier': 1.0,
+    'Dependents': 1.2
+}
+
+#Custom Weighted Distance Function
+
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from scipy.spatial.distance import cdist
+import numpy as np
+
+numeric_features = ['Age', 'Income', 'Rent', 'Loan_Repayment', 'Insurance', 'Groceries']
+categorical_features = ['Occupation', 'City_Tier', 'Dependents']
+
+# Combine for weighting
+all_features_order = numeric_features + categorical_features
+
+preprocessor = ColumnTransformer([
+    ('num', StandardScaler(), numeric_features),
+    ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_features)
+])
+
+# Transform
+original_transformed = preprocessor.fit_transform(original_df[all_features_order])
+protected_transformed = preprocessor.transform(protected_df[all_features_order])
+
+# Get feature names after encoding using Transformer
+encoded_feature_names = (
+    preprocessor.named_transformers_['num'].get_feature_names_out(numeric_features).tolist() +
+    preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_features).tolist()
+)
+
+weights_array = np.array([
+    feature_weights.get(feat.split('_')[0], 1.0)
+    if '_' in feat else feature_weights.get(feat, 1.0)
+    for feat in encoded_feature_names
+])
+
+# Apply weights
+original_weighted = original_transformed * weights_array
+protected_weighted = protected_transformed * weights_array
+
+distances = cdist(protected_weighted, original_weighted, metric='euclidean')
+best_match_indices = distances.argmin(axis=1)
+best_match_scores = distances.min(axis=1)
+
+decoded_df = protected_df.copy()
+decoded_df['Decoded_Name'] = original_df.loc[best_match_indices, 'Name'].values
+decoded_df['Decoded_Identifier'] = original_df.loc[best_match_indices, 'Identifier'].values
+decoded_df['Weighted_Matching_Score'] = best_match_scores
+
+decoded_df.to_csv("decoded_weighted_output_p5.csv", index=False)
+
+#Add Top-3 Candidate Matching
+# Get indices of Top-3 matches for each protected row
+top_3_indices = np.argsort(distances, axis=1)[:, :3]  # shape: (n_rows, 3)
+
+# Get matching scores for top 3
+top_3_scores = np.sort(distances, axis=1)[:, :3]
+
+top_matches = []
+
+for i in range(len(protected_df)):
+    row_matches = {
+        'Protected_Index': i,
+        'Top1_Name': original_df.loc[top_3_indices[i, 0], 'Name'],
+        'Top1_Identifier': original_df.loc[top_3_indices[i, 0], 'Identifier'],
+        'Top1_Score': top_3_scores[i, 0],
+
+        'Top2_Name': original_df.loc[top_3_indices[i, 1], 'Name'],
+        'Top2_Identifier': original_df.loc[top_3_indices[i, 1], 'Identifier'],
+        'Top2_Score': top_3_scores[i, 1],
+
+        'Top3_Name': original_df.loc[top_3_indices[i, 2], 'Name'],
+        'Top3_Identifier': original_df.loc[top_3_indices[i, 2], 'Identifier'],
+        'Top3_Score': top_3_scores[i, 2],
+    }
+    top_matches.append(row_matches)
+
+top_matches_df = pd.DataFrame(top_matches)
+
+# Add encrypted fields from protected_df to top_matches_df
+result_df = pd.concat([protected_df.reset_index(drop=True), top_matches_df.drop(columns='Protected_Index')], axis=1)
+
+# Save full Top-3 output
+result_df.to_csv("top3_decoded_matches.csv", index=False)
+print("Top-3 candidate decoding saved as 'top3_decoded_matches.csv'")
