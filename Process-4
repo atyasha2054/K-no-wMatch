@@ -1,0 +1,62 @@
+import pandas as pd
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from scipy.spatial.distance import cdist
+import numpy as np
+
+original_df = pd.read_csv("/content/drive/MyDrive/data/data-challenge-original.csv")
+protected_df = pd.read_csv("/content/drive/MyDrive/data/protected_data_challenge.csv")
+
+print(original_df.head())
+print(protected_df.head())
+
+matching_columns = [
+    'Age', 'Occupation', 'City_Tier', 'Dependents',
+    'Income', 'Rent', 'Loan_Repayment', 'Insurance', 'Groceries'
+]
+
+numeric_features = ['Age', 'Income', 'Rent', 'Loan_Repayment', 'Insurance', 'Groceries']
+categorical_features = ['Occupation', 'City_Tier', 'Dependents']
+
+# Create preprocessor
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', StandardScaler(), numeric_features),
+        ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_features)
+    ]
+)
+
+# Fit on original, transform both datasets
+original_features = preprocessor.fit_transform(original_df[matching_columns])
+protected_features = preprocessor.transform(protected_df[matching_columns])
+
+# Calculate pairwise distances
+distances = cdist(protected_features, original_features, metric='euclidean')
+
+# Find best match for each protected record
+best_match_indices = distances.argmin(axis=1)
+best_match_scores = distances.min(axis=1)  # distance (lower = better match)
+
+# Add decoded information
+decoded_df = protected_df.copy()
+decoded_df['Decoded_Name'] = original_df.loc[best_match_indices, 'Name'].values
+decoded_df['Decoded_Identifier'] = original_df.loc[best_match_indices, 'Identifier'].values
+decoded_df['Matching_Score'] = best_match_scores 
+
+
+#VISUALIZATION
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10,6))
+sns.histplot(decoded_df['Matching_Score'], bins=50, kde=True, color='skyblue')
+plt.title('Distribution of Matching Scores (lower = better)')
+plt.xlabel('Matching Score')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()
+
+decoded_df.to_csv("decoded_data_p4(matching_score).csv", index=False)
+print("Decoded data saved successfully!")
