@@ -113,7 +113,7 @@ Data protection is only as strong as its weakest anonymization layer.
 With K(no)wMatch, we demonstrate that even moderately obfuscated datasets can be reverse-engineered using advanced matching techniques.
 
 
-## ✍️**Team BizGenius**
+## ✍️**Team JAWAAN**
 
 We are Team BizGenius, a passionate group of innovators focused on solving challenging problems at the intersection of data science, machine learning, and privacy engineering.
 	•	Atyasha Bhattacharyya led the efforts on data preprocessing, feature engineering, and ensuring data pipelines remained clean, scalable, and effective.
