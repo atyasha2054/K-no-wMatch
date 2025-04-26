@@ -88,14 +88,14 @@ Higher weights on **critical fields** like `Income`, `Occupation`, and `Loan Rep
 ```
 
 
-✨ Key Highlights
+##✨ Key Highlights
 	•	Smart Feature Engineering: Domain-driven importance weighting.
 	•	Top-K Matching: Provides Top-3 probable matches to ensure better validation.
 	•	Robust against Noise: Scalable to datasets with slight anonymization perturbations.
 	•	Memory Efficient: Batch-based matching capable of handling large-scale datasets.
 	•	Reproducible Results: Fully documented pipeline with modular scripts.
 
-🚀 Why Our Solution is the Best
+##🚀 Why Our Solution is the Best
 
 Our solution doesn’t rely on just one attack technique.
 Instead, it creates an intelligent hybrid approach by:
@@ -107,13 +107,13 @@ Instead, it creates an intelligent hybrid approach by:
 This multi-layered defense-breaking method helped us achieve over 92% Top-1 Accuracy with a clean, auditable, and reproducible codebase.
 
 
-🏁 Conclusion
+##🏁 Conclusion
 
 Data protection is only as strong as its weakest anonymization layer.
 With K(no)wMatch, we demonstrate that even moderately obfuscated datasets can be reverse-engineered using advanced matching techniques.
 
 
-✍️ Team BizGenius
+##✍️ Team BizGenius
 
 We are Team BizGenius, a passionate group of innovators focused on solving challenging problems at the intersection of data science, machine learning, and privacy engineering.
 	•	Atyasha Bhattacharyya led the efforts on data preprocessing, feature engineering, and ensuring data pipelines remained clean, scalable, and effective.
