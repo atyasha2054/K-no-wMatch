@@ -26,7 +26,7 @@ We leverage a suite of **advanced matching algorithms**, **feature weighting str
 - **Scikit-Learn** — Scaling, PCA, OneHotEncoding
 - **SciPy** — Distance Metrics
 - **TQDM** — Progress Tracking
-- **Matplotlib/Seaborn** *(optional)* — Visualizations
+- **Matplotlib/Seaborn**  — Visualizations
 
 ---
 
