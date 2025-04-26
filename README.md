@@ -48,9 +48,7 @@ We leverage a suite of **advanced matching algorithms**, **feature weighting str
 ✅ Merge the outputs containing **matching score** and **weighted matching score**.  
 ✅ Compute a **Final Hybrid Score**:
 ```
-\[
-\text{Final Score} = 0.3 \times \text{Matching Score} + 0.7 \times \text{Weighted Matching Score}
-\]
+Final Score = 0.3 × Matching Score + 0.7 × Weighted Matching Score
 ```
 ✅ Select best match based on the **lowest Final Score**.  
 ✅ Implement **Top-3 Decoding** for validation and improved recall.
@@ -87,6 +85,7 @@ Higher weights on **critical fields** like `Income`, `Occupation`, and `Loan Rep
 6. Save Decoded Outputs
 ```
 
+---
 
 ## ✨ **Key Highlights**
 	•	Smart Feature Engineering: Domain-driven importance weighting.
@@ -94,6 +93,8 @@ Higher weights on **critical fields** like `Income`, `Occupation`, and `Loan Rep
 	•	Robust against Noise: Scalable to datasets with slight anonymization perturbations.
 	•	Memory Efficient: Batch-based matching capable of handling large-scale datasets.
 	•	Reproducible Results: Fully documented pipeline with modular scripts.
+
+---
 
 ## 🚀**Why Our Solution is the Best**
 
@@ -106,11 +107,14 @@ Instead, it creates an intelligent hybrid approach by:
 
 This multi-layered defense-breaking method helped us achieve over 92% Top-1 Accuracy with a clean, auditable, and reproducible codebase.
 
+---
 
 ## 🏁 **Conclusion**
 
 Data protection is only as strong as its weakest anonymization layer.
 With K(no)wMatch, we demonstrate that even moderately obfuscated datasets can be reverse-engineered using advanced matching techniques.
+
+---
 
 ## 📺 Technical Walkthrough Video
 
@@ -118,7 +122,7 @@ For a detailed step-by-step demonstration of the five matching processes, please
 
 🔗 [Watch the Full Video Here](https://youtu.be/flNfQI4M_MA)
 
-
+---
 
 ## ✍️**Team JAWAAN**
 
