@@ -115,11 +115,11 @@ With K(no)wMatch, we demonstrate that even moderately obfuscated datasets can be
 
 ## ✍️**Team JAWAAN**
 
-We are Team BizGenius, a passionate group of innovators focused on solving challenging problems at the intersection of data science, machine learning, and privacy engineering.
+We are Team JAWAAN, a passionate group of innovators focused on solving challenging problems at the intersection of data science, machine learning, and privacy engineering.
 	•	Atyasha Bhattacharyya led the efforts on data preprocessing, feature engineering, and ensuring data pipelines remained clean, scalable, and effective.
 	•	Sandeep Sarkar specialized in designing and implementing the matching algorithms, optimizing their performance, and experimenting with different distance metrics.
 	•	Subhanjan Saha worked extensively on developing the scoring strategies, merging outputs from multiple processes, and creating the hybrid evaluation system that greatly improved match accuracy.
-	•	Ishaan Karmakar contributed to visualizing results, performance analysis, and helping interpret matching outcomes with impactful insights and clear storytelling.
+	•	Ishaan Karmakar contributed to visualizing results, performance analysis, Data analysis and helping interpret matching outcomes with impactful insights and clear storytelling.
 
 Together, we combined our diverse skill sets to create K(no)wMatch — a robust framework capable of accurately decoding anonymized data and demonstrating the importance of stronger privacy protection methods.
 
