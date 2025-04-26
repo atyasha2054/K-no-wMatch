@@ -112,6 +112,13 @@ This multi-layered defense-breaking method helped us achieve over 92% Top-1 Accu
 Data protection is only as strong as its weakest anonymization layer.
 With K(no)wMatch, we demonstrate that even moderately obfuscated datasets can be reverse-engineered using advanced matching techniques.
 
+## 📺 Technical Walkthrough Video
+
+For a detailed step-by-step demonstration of the five matching processes, please refer to the video walkthrough:
+
+🔗 [Watch the Full Video Here](https://youtu.be/flNfQI4M_MA)
+
+
 
 ## ✍️**Team JAWAAN**
 
@@ -124,6 +131,6 @@ We are Team JAWAAN, a passionate group of innovators focused on solving challeng
 Together, we combined our diverse skill sets to create K(no)wMatch — a robust framework capable of accurately decoding anonymized data and demonstrating the importance of stronger privacy protection methods.
 
 
-© 2025 | Team BizGenius | K(no)wMatch
+© 2025 | Team JAWAAN | K(no)wMatch
 Built with ❤️, Python, and lots of Caffeine.
 
