@@ -49,7 +49,7 @@ We leverage a suite of **advanced matching algorithms**, **feature weighting str
 ✅ Compute a **Final Hybrid Score**:
 
 \[
-{Final Score} = 0.3*{Matching\_Score} + 0.7*{Weighted\_Matching\_Score}
+\text{Final Score} = 0.3 \times \text{Matching Score} + 0.7 \times \text{Weighted Matching Score}
 \]
 
 ✅ Select best match based on the **lowest Final Score**.  
