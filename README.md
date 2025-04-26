@@ -84,7 +84,8 @@ Higher weights on **critical fields** like `Income`, `Occupation`, and `Loan Rep
           ↓
 5. Top-1 and Top-3 Match Selection
           ↓
-6. Save Decoded Outputs```
+6. Save Decoded Outputs
+```
 
 
 ✨ Key Highlights
