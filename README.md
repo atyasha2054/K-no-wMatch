@@ -49,7 +49,7 @@ We leverage a suite of **advanced matching algorithms**, **feature weighting str
 ✅ Compute a **Final Hybrid Score**:
 
 \[
-\text{Final Score} = 0.3 \times \text{Matching\_Score} + 0.7 \times \text{Weighted\_Matching\_Score}
+{Final Score} = 0.3*{Matching\_Score} + 0.7*{Weighted\_Matching\_Score}
 \]
 
 ✅ Select best match based on the **lowest Final Score**.  
@@ -84,7 +84,7 @@ Higher weights on **critical fields** like `Income`, `Occupation`, and `Loan Rep
           ↓
 5. Top-1 and Top-3 Match Selection
           ↓
-6. Save Decoded Outputs
+6. Save Decoded Outputs```
 
 
 ✨ Key Highlights
