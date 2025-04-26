@@ -1,0 +1,31 @@
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics import accuracy_score
+from tqdm import tqdm
+
+original_df = pd.read_csv('/content/drive/MyDrive/data/data-challenge-original.csv')
+protected_df = pd.read_csv('/content/drive/MyDrive/data/protected_data_challenge.csv')
+
+print("Original:", original_df.shape)
+print("Protected:", protected_df.shape)
+print(original_df.head())
+
+drop_cols = ['Name', 'Identifier', 'Occupation', 'City_Tier']
+original_features = original_df.drop(columns=drop_cols, errors='ignore')
+protected_features = protected_df.drop(columns=drop_cols, errors='ignore')
+
+scaler = StandardScaler()
+original_scaled = scaler.fit_transform(original_features)
+protected_scaled = scaler.transform(protected_features)
+
+# Step 5: Compute Cosine Similarity
+similarity_matrix = cosine_similarity(protected_scaled, original_scaled)
+
+# Step 6: Get Best Matches
+predicted_indices = similarity_matrix.argmax(axis=1)
+
+# Step 8: Save Matching Results
+protected_df.to_csv("match_results_cosine.csv", index=False)
+print("Match results saved to match_results_cosine.csv")
