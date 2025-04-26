@@ -26,6 +26,6 @@ similarity_matrix = cosine_similarity(protected_scaled, original_scaled)
 # Step 6: Get Best Matches
 predicted_indices = similarity_matrix.argmax(axis=1)
 
-# Step 8: Save Matching Results
+# Step 7: Save Matching Results
 protected_df.to_csv("match_results_cosine.csv", index=False)
 print("Match results saved to match_results_cosine.csv")
