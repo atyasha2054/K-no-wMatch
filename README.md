@@ -47,11 +47,11 @@ We leverage a suite of **advanced matching algorithms**, **feature weighting str
 ✅ Apply **Process 4** and **Process 5** separately on the protected data.  
 ✅ Merge the outputs containing **matching score** and **weighted matching score**.  
 ✅ Compute a **Final Hybrid Score**:
-
+```
 \[
 \text{Final Score} = 0.3 \times \text{Matching Score} + 0.7 \times \text{Weighted Matching Score}
 \]
-
+```
 ✅ Select best match based on the **lowest Final Score**.  
 ✅ Implement **Top-3 Decoding** for validation and improved recall.
 
