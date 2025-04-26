@@ -129,7 +129,7 @@ For a detailed step-by-step demonstration of the five matching processes, please
 
 We are Team JAWAAN, a passionate group of innovators focused on solving challenging problems at the intersection of data science, machine learning, and privacy engineering.
 
-	•	Ataysha Bhattacharyya specialized in designing and implementing the matching algorithms, optimizing their performance, and experimenting with different distance metrics.
+	•	Atyasha Bhattacharyya specialized in designing and implementing the matching algorithms, optimizing their performance, and experimenting with different distance metrics.
  
 	•	Sandeep Sarkar worked extensively on developing the scoring strategies, merging outputs from multiple processes, and creating the hybrid evaluation system that greatly improved match accuracy.
  
